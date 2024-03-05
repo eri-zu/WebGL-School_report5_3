@@ -1,0 +1,38 @@
+// ===================================================================
+// 各Sassファイルのインポート
+// ===================================================================
+@use "sass:math";
+// 設定用
+@import "config";
+
+// ミックスイン、@extend、CSS3など
+@import "mixin";
+@import "extend";
+
+// function
+@function rem($px, $base) {
+  @return math.div($px, $base) + rem;
+}
+@function rem2($px, $base) {
+  @return math.div($px * 0.5, $base) + rem;
+}
+@function rem9($px, $base) {
+  @return math.div($px * 0.85, $base) + rem;
+}
+@function vw($px, $base) {
+  @return math.div($px, $base) * 100vw;
+}
+@function vwh($px, $base) {
+  @return floor($px * 0.5) / $base * 100vw;
+}
+@function res($px) {
+  @return $px * 0.5;
+}
+
+@function half($value) {
+  @return floor($value * 0.5);
+}
+
+@function sp($px) {
+  @return $px * 0.5 + px;
+}
